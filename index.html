@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <div id="top-wrapper">
+            <div id="box">
+                <div id="img-wrapper">
+                    <img src="image1.jpeg">
+                    <img src="image2.jpeg">
+                    <img src="image3.jpeg">
+                    <img src="image4.jpeg">
+                </div>
+            </div>
+            <div id="left-panel">
+                <div class="app">
+                    <a href="https://chat.openai.com/" style="margin-left: 7px;">
+                        <img src="chatgpticon.png">
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://gmail.com/">
+                        <i class="material-icons" style="color: #ff0000;">email</i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://www.instagram.com/">
+                        <i class="fab fa-instagram" style="color: #e4405f;"></i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://drive.google.com/drive/shared-with-me">
+                        <i class="fab fa-google-drive" style="color: #4285F4;"></i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://www.linkedin.com/">
+                        <i class="fab fa-linkedin" style="color: #0077b5; margin-top: 10px;"></i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://www.youtube.com/">
+                        <i class="fab fa-youtube" style="color: #ff0000;"></i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://www.spotify.com/">
+                        <i class="fab fa-spotify" style="color: #1db954; "></i>
+                    </a>
+                </div>
+            </div>
+            <div id="right-panel">
+                <div class="app">
+                    <a href="https://github.com">
+                        <i class="fab fa-github" style="color: purple; font-size: 45px;"></i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://leetcode.com/">
+                        <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png">
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://codepen.io/" style="margin-right: 10px;">
+                        <i class="fab fa-codepen" style="color: #f4f7f7; "></i>
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://www.uiverse.io/">
+                        <img src="https://uiverse.io/build/_assets/logo-OR7QQX33.svg">
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://quillbot.com/">
+                        <img src="quillboticon.png">
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://exercism.io/">
+                        <img src="exercismioicon.png">
+                    </a>
+                </div>
+                <div class="app">
+                    <a href="https://www.canva.com/">
+                        <img src="https://static.canva.com/web/images/12487a1e0770d29351bd4ce4f87ec8fe.svg">
+                    </a>
+                </div>
+            </div>
+            <div class="clock"></div>
+            <h3 class="txt-ne" style="position: absolute; top:90%; left : 27%" data-text="Nadeesha Eranjan">Coding is
+                Love ❤️ </h3>
+        </div>
+        <div id="search-container" style="margin-top: 5%;">
+            <div id="input-container">
+                <img src="https://assets.codepen.io/1468070/Google+G+Icon.png" alt="" />
+                <input type="text" placeholder="Search anything" id="search" style="height: 1.5rem;" />
+            </div>
+            <button id="image-button" onclick="googleSearch();" type="button">
+                <i class="material-icons" style="font-size:26px">search</i>
+            </button>
+        </div>
+    </div>
+    <script>
+        function googleSearch() {
+            var text = document.getElementById("search").value;
+            var cleanQuery = text.replace(" ", "+", text);
+            var url = 'http://www.google.com/search?q=' + cleanQuery;
+
+            window.location.href = url;
+        }
+        function showTime() {
+            const date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let meridiem = "AM";
+
+            if (hours > 12) {
+                hours = hours - 12;
+                meridiem = "PM";
+            }
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            const time = `${hours}:${minutes}:${seconds} ${meridiem}`;
+            document.querySelector(".clock").textContent = time;
+        }
+
+        setInterval(showTime, 1000);
+    </script>
+</body>
+
+</html>
